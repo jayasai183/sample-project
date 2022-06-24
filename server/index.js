@@ -1,11 +1,17 @@
 const express = require('express');
 const app = express();
 const shortid = require('shortid');
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const list = {};
 
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
 
 app.post("/", (req, res) => {
     const id = shortid.generate();
