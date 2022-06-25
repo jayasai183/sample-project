@@ -23,10 +23,10 @@ app.get("/:id",(req,res)=>{
      res.redirect(list[req.params.id]);
 })
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
 app.listen(port, () => {
