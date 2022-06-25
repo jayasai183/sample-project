@@ -14,7 +14,7 @@ app.post("/", (req, res) => {
     //console.log(list);
 })
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
     res.send(list);
 })
 
